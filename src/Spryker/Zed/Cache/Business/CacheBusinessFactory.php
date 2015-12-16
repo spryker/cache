@@ -13,7 +13,7 @@ use Spryker\Zed\Cache\CacheConfig;
 /**
  * @method CacheConfig getConfig()
  */
-class CacheDependencyContainer extends AbstractBusinessFactory
+class CacheBusinessFactory extends AbstractBusinessFactory
 {
 
     /**
