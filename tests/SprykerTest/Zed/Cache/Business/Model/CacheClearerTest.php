@@ -38,7 +38,7 @@ class CacheClearerTest extends Unit
         $configMock
             ->expects($this->once())
             ->method('getCachePath')
-            ->will($this->returnValue('/path/to/cache'));
+            ->willReturn('/path/to/cache');
 
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|\Symfony\Component\Filesystem\Filesystem $fileSystemMock
@@ -48,7 +48,7 @@ class CacheClearerTest extends Unit
             ->expects($this->once())
             ->method('exists')
             ->with($this->equalTo('/path/to/cache'))
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $fileSystemMock
             ->expects($this->once())
             ->method('remove');
@@ -61,12 +61,12 @@ class CacheClearerTest extends Unit
             ->expects($this->once())
             ->method('in')
             ->with($this->equalTo('/path/to/cache'))
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $finderMock
             ->expects($this->once())
             ->method('depth')
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $cacheClearer = new CacheClearer($configMock, $fileSystemMock, $finderMock);
         $cacheClearer->clearCache();
@@ -84,7 +84,7 @@ class CacheClearerTest extends Unit
         $configMock
             ->expects($this->once())
             ->method('getAutoloaderCachePath')
-            ->will($this->returnValue('/path/to/auto-load-cache'));
+            ->willReturn('/path/to/auto-load-cache');
 
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|\Symfony\Component\Filesystem\Filesystem $fileSystemMock
@@ -94,7 +94,7 @@ class CacheClearerTest extends Unit
             ->expects($this->once())
             ->method('exists')
             ->with($this->equalTo('/path/to/auto-load-cache'))
-            ->will($this->returnValue(true));
+            ->willReturn(true);
         $fileSystemMock
             ->expects($this->once())
             ->method('remove');
@@ -107,12 +107,12 @@ class CacheClearerTest extends Unit
             ->expects($this->once())
             ->method('in')
             ->with($this->equalTo('/path/to/auto-load-cache'))
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $finderMock
             ->expects($this->once())
             ->method('depth')
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $cacheClearer = new CacheClearer($configMock, $fileSystemMock, $finderMock);
         $cacheClearer->clearAutoLoaderCache();
@@ -130,7 +130,7 @@ class CacheClearerTest extends Unit
         $configMock
             ->expects($this->once())
             ->method('getCachePath')
-            ->will($this->returnValue('/path/to/{STORE}/cache'));
+            ->willReturn('/path/to/{STORE}/cache');
 
         /**
          * @var \PHPUnit\Framework\MockObject\MockObject|\Symfony\Component\Filesystem\Filesystem $fileSystemMock
@@ -173,7 +173,7 @@ class CacheClearerTest extends Unit
         $finderMock
             ->expects($this->exactly(2))
             ->method('depth')
-            ->will($this->returnSelf());
+            ->willReturnSelf();
 
         $cacheClearer = new CacheClearer($configMock, $fileSystemMock, $finderMock);
         $cacheClearer->clearCache();
@@ -194,12 +194,12 @@ class CacheClearerTest extends Unit
         $mock
             ->expects($this->any())
             ->method('getAllowedStores')
-            ->will($this->returnValue($stores));
+            ->willReturn($stores);
 
         $mock
             ->expects($this->any())
             ->method('getStorePatternMarker')
-            ->will($this->returnValue(CacheConfig::STORE_PATTERN_MARKER));
+            ->willReturn(CacheConfig::STORE_PATTERN_MARKER);
 
         return $mock;
     }
