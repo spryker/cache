@@ -29,9 +29,6 @@ class DeleteAllCachesConsole extends Console
      */
     public const DESCRIPTION = 'Deletes all cache files from /data/{Store}/cache for all stores';
 
-    /**
-     * @return void
-     */
     protected function configure(): void
     {
         $this->setName(static::COMMAND_NAME);
@@ -39,12 +36,6 @@ class DeleteAllCachesConsole extends Console
         parent::configure();
     }
 
-    /**
-     * @param \Symfony\Component\Console\Input\InputInterface $input
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return int
-     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $dirs = $this->getFacade()->deleteAllFiles();

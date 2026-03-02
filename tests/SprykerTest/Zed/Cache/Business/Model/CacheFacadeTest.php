@@ -43,9 +43,6 @@ class CacheFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testEmptyCodeBucketCacheRemovesDirectory(): void
     {
         $structure = [
@@ -69,9 +66,6 @@ class CacheFacadeTest extends Unit
         $this->assertFalse(is_dir($path));
     }
 
-    /**
-     * @return void
-     */
     public function testEmptyDefaultCodeBucketCacheRemovesDirectory(): void
     {
         $structure = [

@@ -22,9 +22,6 @@ class EmptyAllCachesConsole extends Console
      */
     public const COMMAND_NAME = 'cache:empty-all';
 
-    /**
-     * @return void
-     */
     public function configure(): void
     {
         $this->setName(static::COMMAND_NAME);
@@ -50,11 +47,6 @@ class EmptyAllCachesConsole extends Console
         return static::CODE_SUCCESS;
     }
 
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
     protected function emptyCodeBucketCache(OutputInterface $output): void
     {
         if (APPLICATION_CODE_BUCKET === '') {
@@ -67,11 +59,6 @@ class EmptyAllCachesConsole extends Console
         $output->writeln($emptiedDirectories);
     }
 
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
     protected function emptyDefaultCodeBucketCache(OutputInterface $output): void
     {
         $emptiedDirectories = $this->getFacade()->emptyDefaultCodeBucketCache();
@@ -118,11 +105,6 @@ class EmptyAllCachesConsole extends Console
         $output->writeln($emptiedDirectories);
     }
 
-    /**
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
-     * @return void
-     */
     protected function emptyProjectSpecificCache(OutputInterface $output): void
     {
         $emptiedDirectories = $this->getFacade()->emptyProjectSpecificCache();

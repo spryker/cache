@@ -29,11 +29,6 @@ class CacheClearer implements CacheClearerInterface
      */
     protected $finder;
 
-    /**
-     * @param \Spryker\Zed\Cache\CacheConfig $config
-     * @param \Symfony\Component\Filesystem\Filesystem $fileSystem
-     * @param \Symfony\Component\Finder\Finder $finder
-     */
     public function __construct(CacheConfig $config, Filesystem $fileSystem, Finder $finder)
     {
         $this->config = $config;
@@ -54,9 +49,6 @@ class CacheClearer implements CacheClearerInterface
         );
     }
 
-    /**
-     * @return string
-     */
     public function clearCodeBucketCache(): string
     {
         $directory = $this->config->getCodeBucketCachePath();
@@ -64,9 +56,6 @@ class CacheClearer implements CacheClearerInterface
         return $this->clearDirectoriesByPattern($directory);
     }
 
-    /**
-     * @return string
-     */
     public function clearDefaultCodeBucketCache(): string
     {
         $directory = $this->config->getDefaultCodeBucketCachePath();
@@ -163,11 +152,6 @@ class CacheClearer implements CacheClearerInterface
         return $finder;
     }
 
-    /**
-     * @param string $directoryPattern
-     *
-     * @return string
-     */
     protected function clearDirectoriesByPattern(string $directoryPattern): string
     {
         try {

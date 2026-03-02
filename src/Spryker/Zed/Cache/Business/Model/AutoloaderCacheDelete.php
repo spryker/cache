@@ -20,9 +20,6 @@ class AutoloaderCacheDelete
      */
     protected $config;
 
-    /**
-     * @param \Spryker\Zed\Cache\CacheConfig $config
-     */
     public function __construct(CacheConfig $config)
     {
         $this->config = $config;

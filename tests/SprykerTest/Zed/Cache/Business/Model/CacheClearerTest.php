@@ -26,9 +26,6 @@ use Symfony\Component\Finder\Finder;
  */
 class CacheClearerTest extends Unit
 {
-    /**
-     * @return void
-     */
     public function testClearCacheEmptiesDirectories(): void
     {
         /**
@@ -72,9 +69,6 @@ class CacheClearerTest extends Unit
         $cacheClearer->clearCache();
     }
 
-    /**
-     * @return void
-     */
     public function testClearAutoLoadCacheEmptiesDirectories(): void
     {
         /**
@@ -118,9 +112,6 @@ class CacheClearerTest extends Unit
         $cacheClearer->clearAutoLoaderCache();
     }
 
-    /**
-     * @return void
-     */
     public function testClearingOfFilesForAllStores(): void
     {
         /**
